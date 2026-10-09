@@ -1,0 +1,74 @@
+:root{
+  --noche:#071a3d; --azul:#0b4fd0; --azul-vivo:#1677ff; --cielo:#eaf3ff;
+  --fondo:#f5f9ff; --texto:#1c2a44; --suave:#5a6b88; --blanco:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.6}
+a{color:var(--azul);text-decoration:none}
+:focus-visible{outline:3px solid var(--azul-vivo);outline-offset:2px}
+
+/* Menú */
+.nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
+  padding:.9rem 5vw;background:var(--noche)}
+.logo{font-weight:700;font-size:1.5rem;color:var(--blanco)}
+.logo span{color:var(--azul-vivo)}
+nav{display:flex;gap:1.6rem}
+nav a{color:#dbe8ff;font-weight:500;font-size:.95rem;padding:.3rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.active{color:var(--blanco);border-color:var(--azul-vivo)}
+.burger{display:none;background:none;border:0;color:var(--blanco);font-size:1.6rem;cursor:pointer}
+
+/* Portada */
+.hero{position:relative;display:flex;align-items:center;gap:3rem;padding:3.5rem 5vw;
+  background:linear-gradient(120deg,var(--noche) 0%,#0a2c6b 60%,#0b4fd0 130%);color:var(--blanco)}
+.foto{width:260px;height:312px;object-fit:cover;object-position:center top;border-radius:28px;
+  border:5px solid var(--azul-vivo);box-shadow:0 18px 40px rgba(0,0,0,.35);flex-shrink:0}
+h1{font-size:clamp(2rem,4.2vw,3rem);line-height:1.15;font-weight:700}
+h1 span{display:block;color:var(--azul-vivo)}
+.carrera{font-size:1.2rem;margin:.8rem 0 1.2rem;max-width:30ch}
+.datos{list-style:none;display:grid;gap:.3rem;margin-bottom:1.5rem;color:#dbe8ff}
+.botones{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-block;padding:.75rem 1.4rem;border-radius:999px;background:var(--azul-vivo);color:var(--blanco);
+  font-weight:600;border:2px solid var(--azul-vivo);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-claro{background:transparent;border-color:var(--blanco)}
+.lema{position:absolute;right:5vw;top:2rem;max-width:230px;font-family:'Caveat',cursive;font-size:1.7rem;
+  line-height:1.2;transform:rotate(-6deg);color:#cfe1ff}
+
+/* Contenido */
+.grid{display:grid;grid-template-columns:minmax(260px,1fr) 2fr;gap:1.5rem;max-width:1100px;margin:2rem auto;padding:0 5vw}
+.grid>*{display:flex;flex-direction:column;gap:1.5rem}
+.card{background:var(--blanco);border:1px solid #dce8fb;border-radius:14px;padding:1.6rem}
+h2{color:var(--noche);font-size:1.25rem;margin-bottom:1rem;padding-left:.8rem;border-left:5px solid var(--azul-vivo)}
+h3{font-size:1.02rem;color:var(--noche)}
+.lista-contacto{list-style:none;display:grid;gap:.9rem}
+.lista-contacto span{display:block;font-size:.8rem;color:var(--suave)}
+.lista-contacto a{word-break:break-word}
+.checks{list-style:none;display:grid;gap:.6rem}
+.checks li{padding-left:1.7rem;position:relative}
+.checks li::before{content:"✓";position:absolute;left:0;color:var(--azul-vivo);font-weight:700}
+.etiquetas{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem}
+.etiquetas li{background:var(--cielo);color:var(--azul);padding:.3rem .8rem;border-radius:999px;font-size:.88rem}
+.item+.item{margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid #dce8fb}
+.estado{color:var(--azul);font-weight:500;font-size:.9rem}
+
+footer{background:var(--noche);color:var(--blanco);text-align:center;padding:2.5rem 5vw}
+.frase{font-style:italic;font-size:1.1rem}
+.copy{margin-top:.6rem;font-size:.85rem;color:#9db4de}
+.subir{position:fixed;right:1.2rem;bottom:1.2rem;width:46px;height:46px;border-radius:50%;border:2px solid var(--blanco);
+  background:var(--azul);color:var(--blanco);font-size:1.3rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s}
+.subir.visible{opacity:1;pointer-events:auto}
+
+/* Celular y tablet */
+@media (max-width:860px){
+  .burger{display:block}
+  nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--noche);padding:.5rem 5vw 1rem}
+  nav.abierto{display:flex}
+  nav a{padding:.7rem 0}
+  .hero{flex-direction:column;text-align:center;padding-top:2.5rem}
+  .carrera{margin-inline:auto}
+  .datos,.botones{justify-content:center}
+  .lema{position:static;transform:none;max-width:none}
+  .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
